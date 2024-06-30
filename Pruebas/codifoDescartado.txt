@@ -1,0 +1,30 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Venanas Hijos de 1er Orden
+    #-----------------------------------------------------------------------
+    self.ventana_acceso_admin    = tk.Toplevel(self.ventana_seleccion)
+    self.ventana_query_usuarios  = tk.Toplevel(self.ventana_seleccion)
+    #-----------------------------------------------------------------------
+    # Ventanas hijos del acceso de administracion, esto son de 2do Orden
+    #=======================================================================
+    self.ventana_seleccion_root  = tk.Toplevel(self.ventana_acceso_admin)
+    self.ventana_seleccion_admin = tk.Toplevel(self.ventana_acceso_admin)
+    #=======================================================================
+    # Ventana hija de query usuarios, hija de segundo orden
+    #=======================================================================
+    self.ventana_resultados_usr  = tk.Toplevel(self.ventana_query_usuarios)
+    #=======================================================================
+    # Ventanas hijos de la seleccion a root hijos de tercer orden 
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    self.ventana_rm_registro     = tk.Toplevel(self.ventana_seleccion_root)
+    self.ventana_add_admin       = tk.Toplevel(self.ventana_seleccion_root)
+    self.ventana_rm_admin        = tk.Toplevel(self.ventana_seleccion_root)
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Ventas hijos de la seleccion de admin, hijos de tercer orden tambien
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    self.ventana_query_admin     = tk.Toplevel(self.ventana_seleccion_admin)
+    self.ventana_add_registro    = tk.Toplevel(self.ventana_seleccion_admin)
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # Ventana hija query admin, hija de 4to Orden
+    #.......................................................................
+    self.resultados_qry_admin    = tk.Toplevel(self.ventana_query_admin)
+    #.......................................................................
