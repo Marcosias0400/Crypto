@@ -28,3 +28,32 @@
     #.......................................................................
     self.resultados_qry_admin    = tk.Toplevel(self.ventana_query_admin)
     #.......................................................................
+    
+    
+    
+  # Hacer busquedas multipcampo
+  def query_multiple(self, campos, busquedas):
+    conn = sqlite3.connect(self.donantes)
+    c = conn.cursor()
+    multi=f""
+    n=len(campos)
+    for i in range(n):
+      if i>0:
+        multi+= f"AND {campos[i]} = ?"
+      else:
+        multi+= f"{campos[i]} = ?"
+    consulta = """SELECT * FROM donantes WHERE """ + multi
+    busq=[self.C.cif(valor) if campos in self.campo_protegido else valor for valor in busquedas]
+    c.execute(consulta, (busq,))
+    
+    resultados = c.fetchall()
+    
+    resultados_descifrados = []
+    for resultado in resultados:
+        resultado_descifrado = [self.C.dcif(valor) if campos in self.campo_protegido else valor for valor in resultado]
+        resultados_descifrados.append(resultado_descifrado)
+    
+    c.close()
+    # Cerrar la conexión a la base de datos
+    conn.close()
+    return resultados_descifrados

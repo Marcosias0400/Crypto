@@ -1,5 +1,5 @@
 import sqlite3
-from Cripto import herramientas_criptograficas
+from CRYPT import herramientas_criptograficas
 
 class herramientas_BD:
     def __init__(self, db_admin_path, db_donantes_path, clave_sim, clave_privada, clave_publica):
