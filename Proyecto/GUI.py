@@ -165,4 +165,3 @@ class DonorInterface(tk.Tk):
         for result in results:
             if search_term in result:
                 self.results.insert(tk.END, f"{result}\n")
-

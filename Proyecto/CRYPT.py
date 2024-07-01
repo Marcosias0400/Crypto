@@ -29,7 +29,8 @@ class herramientas_criptograficas:
   def dcif(self, texto_cif):
     # Siempre se usa el cifrador
     cifrador = Fernet(self.clave_simetrica)
-    return cifrador.decrypt(texto_cif)
+    td=cifrador.decrypt(texto_cif)
+    return td.decode('utf-8')
   
   # funcion que retorna el hash
   def Hash_mio(self, texto_llano):
